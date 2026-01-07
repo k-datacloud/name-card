@@ -1,0 +1,60 @@
+---
+import { ClientRouter } from "astro:transitions";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="img/apple-touch.png" sizes="180x180" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="img/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="img/favicon-16x16.png"
+      sizes="16x16"
+    />
+
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <title></title>
+  </head>
+  <body class="body">
+    <ClientRouter />
+    <svg class="filter" xmlns="http://www.w3.org/2000/svg">
+      <filter id="grainy">
+        <feTurbulence type="turbulence" baseFrequency="0.5"></feTurbulence>
+        <feColorMatrix type="saturate" values="0"></feColorMatrix>
+      </filter>
+    </svg>
+    <slot name="loader" />
+    <main class="main">
+      <slot />
+    </main>
+  </body>
+</html>
+
+<!-- <script>
+  import mainScript from "../scripts/main.js";
+  mainScript();
+</script> -->
