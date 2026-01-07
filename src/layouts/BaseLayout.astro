@@ -40,6 +40,12 @@ import { ClientRouter } from "astro:transitions";
     <title></title>
   </head>
   <body class="body">
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+      <filter id="grainy">
+        <feTurbulence type="turbulence" baseFrequency="0.5"></feTurbulence>
+        <feColorMatrix type="saturate" values="0"></feColorMatrix>
+      </filter>
+    </svg>
     <ClientRouter />
     <slot name="loader" />
     <main class="main">

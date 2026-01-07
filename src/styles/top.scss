@@ -104,12 +104,13 @@
   }
 
   &__main {
-    width: 90vw;
+    width: 95vw;
     padding: clamp(20px, calc(12.958px + 1.878vw), 40px);
     max-width: 480px;
     height: fit-content;
     background-color: #080807;
     color: #d1d1c7;
+    position: relative;
   }
 
   &__title {
@@ -122,6 +123,11 @@
     font-size: clamp(0.875rem, 0.831rem + 0.1878vw, 1rem);
     line-height: 1.5;
     margin-bottom: 32px;
+
+    .space {
+      display: block;
+      margin-bottom: 8px;
+    }
   }
 
   &__button {
