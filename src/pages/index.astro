@@ -5,10 +5,36 @@ import "../styles/top.scss";
 
 <BaseLayout>
   <section class="p-top-fv">
-    <div class="l-outer">
-      <div class="l-inner">
-        <p><a href="/back">（裏面参照）</a></p>
+    <div class="l-outer p-top-fv__wrapper">
+      <div class="square square--left-top"></div>
+      <div class="square square--right-top"></div>
+      <div class="square square--left-bottom"></div>
+      <div class="square square--right-bottom"></div>
+      <div class="l-inner p-top-fv__inner">
+        <div class="p-top-fv__body">
+          <h1 class="p-top-fv__title" lang="ja">幸会</h1>
+          <a class="p-top-fv__link" href="/back" lang="ja">(裏面表示)</a>
+        </div>
+        <button type="button" class="p-top-fv__note js-modal-open" lang="en">
+          What is this website?
+        </button>
       </div>
     </div>
   </section>
+
+  <div class="modal js-modal">
+    <div class="modal__wrapper">
+      <div class="modal__main" role="dialog">
+        <h2 class="modal__title" lang="en">(Site Description)</h2>
+        <p class="modal__text" lang="en">
+          This website is a web version of my personal business card. I
+          experimented with pixel transitions and router-style animations that
+          I’ve wanted to explore since before.
+        </p>
+        <p class="modal__button">
+          <button class="modal__close js-modal-close">Close</button>
+        </p>
+      </div>
+    </div>
+  </div>
 </BaseLayout>

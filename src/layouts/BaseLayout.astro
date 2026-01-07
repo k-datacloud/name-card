@@ -31,7 +31,7 @@ import { ClientRouter } from "astro:transitions";
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Noto+Serif+JP:wght@200..900&display=swap"
       rel="stylesheet"
     />
 
@@ -41,12 +41,6 @@ import { ClientRouter } from "astro:transitions";
   </head>
   <body class="body">
     <ClientRouter />
-    <svg class="filter" xmlns="http://www.w3.org/2000/svg">
-      <filter id="grainy">
-        <feTurbulence type="turbulence" baseFrequency="0.5"></feTurbulence>
-        <feColorMatrix type="saturate" values="0"></feColorMatrix>
-      </filter>
-    </svg>
     <slot name="loader" />
     <main class="main">
       <slot />
@@ -54,7 +48,7 @@ import { ClientRouter } from "astro:transitions";
   </body>
 </html>
 
-<!-- <script>
+<script>
   import mainScript from "../scripts/main.js";
   mainScript();
-</script> -->
+</script>

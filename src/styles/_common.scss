@@ -81,4 +81,34 @@ button {
 
 .body {
   background-color: #eaeaea;
+  position: relative;
+  font-size: 16px;
+}
+
+[lang="ja"] {
+  font-family: "Noto Serif JP", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+[lang="en"] {
+  font-family: "EB Garamond", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+h1,
+h2 {
+  line-height: 1;
+}
+
+p {
+  line-height: 1.2;
+}
+
+.l-outer {
+  width: 100%;
+  padding-left: clamp(20px, calc(-6.761px + 7.136vw), 96px);
+  padding-right: clamp(20px, calc(-6.761px + 7.136vw), 96px);
+  margin: 0 auto;
 }
