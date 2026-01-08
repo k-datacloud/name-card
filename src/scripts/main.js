@@ -77,21 +77,134 @@ const mainScript = () => {
     }
   };
 
+  // const pixelIn = () => {
+  //   return new Promise((resolve) => {
+  //     const isMobile = window.innerWidth < 768;
+
+  //     const duration = isMobile ? 0.1 : 0.001;
+  //     const staggerEach = isMobile ? 0.01 : 0.004;
+  //     createSquares();
+  //     gsap.fromTo(
+  //       squares,
+  //       { opacity: 0 },
+  //       {
+  //         opacity: 1,
+  //         duration: duration,
+  //         stagger: {
+  //           each: staggerEach,
+  //           from: "random",
+  //         },
+  //         onComplete: resolve,
+  //       }
+  //     );
+  //   });
+  // };
+
+  // const pixelOut = () => {
+  //   const isMobile = window.innerWidth < 768;
+
+  //   const duration = isMobile ? 0.1 : 0.001;
+  //   const staggerEach = isMobile ? 0.01 : 0.004;
+  //   gsap.to(squares, {
+  //     opacity: 0,
+  //     duration: duration,
+  //     delay: 0.7,
+  //     stagger: {
+  //       each: staggerEach,
+  //       from: "random",
+  //     },
+  //     onComplete: () => {
+  //       squareContainer.innerHTML = "";
+  //       squares = [];
+  //     },
+  //   });
+  // };
+
+  // const flipBtn = document.querySelector(".js-link");
+  // if (!flipBtn) return;
+
+  // flipBtn.addEventListener("click", (e) => {
+  //   e.preventDefault();
+  //   const to = e.currentTarget.dataset.to;
+
+  //   pixelIn().then(() => {
+  //     window.location.href = to;
+  //   });
+  // });
+
+  // window.addEventListener("DOMContentLoaded", () => {
+  //   createSquares();
+  //   pixelOut();
+  // });
+
+  // const initPixelTransition = () => {
+  //   const flipBtn = document.querySelector(".js-link");
+  //   if (!flipBtn) return;
+
+  //   const pixelIn = () => {
+  //     return new Promise((resolve) => {
+  //       createSquares();
+  //       gsap.fromTo(
+  //         squares,
+  //         { opacity: 0 },
+  //         {
+  //           opacity: 1,
+  //           duration: 0.001,
+  //           stagger: {
+  //             each: 0.004,
+  //             from: "random",
+  //           },
+  //           onComplete: resolve,
+  //         }
+  //       );
+  //     });
+  //   };
+
+  //   const pixelOut = () => {
+  //     gsap.to(squares, {
+  //       opacity: 0,
+  //       duration: 0.001,
+  //       stagger: {
+  //         each: 0.004,
+  //         from: "random",
+  //       },
+  //       onComplete: () => {
+  //         squareContainer.innerHTML = "";
+  //         squares = [];
+  //       },
+  //     });
+  //   };
+
+  //   document.addEventListener("astro:before-swap", (event) => {
+  //     event.preventDefault();
+  //     window.alert("ページ遷移します");
+  //     // pixelIn().then(() => {
+  //     //   // pixelIn のアニメーションが終わったら遷移
+  //     //   event.detail?.resolve?.();
+  //     // });
+  //   });
+
+  //   document.addEventListener("astro:after-swap", (e) => {
+  //     e.preventDefault();
+  //     pixelOut();
+  //   });
+  // };
+
+  // initPixelTransition();
+
+  // document.addEventListener("astro:page-load", initPixelTransition);
+
   const pixelIn = () => {
     return new Promise((resolve) => {
-      const isMobile = window.innerWidth < 768;
-
-      const duration = isMobile ? 0.1 : 0.001;
-      const staggerEach = isMobile ? 0.01 : 0.004;
       createSquares();
       gsap.fromTo(
         squares,
         { opacity: 0 },
         {
           opacity: 1,
-          duration: duration,
+          duration: 0.01,
           stagger: {
-            each: staggerEach,
+            each: 0.004,
             from: "random",
           },
           onComplete: resolve,
@@ -101,16 +214,11 @@ const mainScript = () => {
   };
 
   const pixelOut = () => {
-    const isMobile = window.innerWidth < 768;
-
-    const duration = isMobile ? 0.1 : 0.001;
-    const staggerEach = isMobile ? 0.01 : 0.004;
     gsap.to(squares, {
       opacity: 0,
-      duration: duration,
-      delay: 0.7,
+      duration: 0.01,
       stagger: {
-        each: staggerEach,
+        each: 0.004,
         from: "random",
       },
       onComplete: () => {
@@ -122,68 +230,9 @@ const mainScript = () => {
 
   const flipBtn = document.querySelector(".js-link");
   if (!flipBtn) return;
-
   flipBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    const to = e.currentTarget.dataset.to;
-
-    pixelIn().then(() => {
-      window.location.href = to;
-    });
+    pixelIn();
   });
-
-  window.addEventListener("DOMContentLoaded", () => {
-    createSquares();
-    pixelOut();
-  });
-
-  // const pixelIn = () => {
-  //   createSquares();
-  //   gsap.fromTo(
-  //     squares,
-  //     { opacity: 0 },
-  //     {
-  //       opacity: 1,
-  //       duration: 0.001,
-  //       stagger: {
-  //         each: 0.004,
-  //         from: "random",
-  //       },
-  //     }
-  //   );
-  // };
-
-  // const pixelOut = () => {
-  //   gsap.to(squares, {
-  //     opacity: 0,
-  //     duration: 0.001,
-  //     stagger: {
-  //       each: 0.004,
-  //       from: "random",
-  //     },
-  //     onComplete: () => {
-  //       squareContainer.innerHTML = "";
-  //       squares = [];
-  //     },
-  //   });
-  // };
-
-  // const initPixelTransition = () => {
-  //   const flipBtn = document.querySelector(".js-link");
-  //   if (!flipBtn) return;
-
-  //   document.addEventListener("astro:before-swap", () => {
-  //     pixelIn();
-  //     console.log("fire");
-  //   });
-
-  //   document.addEventListener("astro:after-swap", () => {
-  //     pixelOut();
-  //   });
-  // };
-
-  // initPixelTransition();
-
-  // document.addEventListener("astro:page-load", initPixelTransition);
 };
 export default mainScript;
