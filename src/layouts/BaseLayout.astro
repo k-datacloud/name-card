@@ -1,5 +1,5 @@
 ---
-import { ClientRouter } from "astro:transitions";
+import { ViewTransitions } from "astro:transitions";
 ---
 
 <html lang="en">
@@ -38,6 +38,7 @@ import { ClientRouter } from "astro:transitions";
     <meta property="og:title" content="" />
     <meta property="og:description" content="" />
     <title></title>
+    <ViewTransitions />
   </head>
   <body class="body">
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -46,8 +47,7 @@ import { ClientRouter } from "astro:transitions";
         <feColorMatrix type="saturate" values="0"></feColorMatrix>
       </filter>
     </svg>
-    <ClientRouter />
-    <slot name="loader" />
+    <div class="square-container"></div>
     <main class="main">
       <slot />
     </main>

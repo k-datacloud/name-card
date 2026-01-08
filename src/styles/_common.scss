@@ -112,3 +112,25 @@ p {
   padding-right: clamp(20px, calc(-6.761px + 7.136vw), 96px);
   margin: 0 auto;
 }
+
+.square-container {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.square {
+  width: 80px;
+  height: 80px;
+  background-color: #080807;
+  pointer-events: none;
+}
