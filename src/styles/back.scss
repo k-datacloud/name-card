@@ -89,6 +89,10 @@
       @include respond-to("lg") {
         width: 160px;
         margin-top: 24px;
+
+        &:hover {
+          cursor: pointer;
+        }
       }
 
       img {

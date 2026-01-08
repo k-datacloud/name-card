@@ -126,6 +126,7 @@ p {
   pointer-events: none;
   overflow: hidden;
   z-index: 9999;
+  background-color: #080807;
 
   .square {
     width: 80px;
@@ -133,4 +134,11 @@ p {
     background-color: #080807;
     pointer-events: none;
   }
+}
+
+#canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
 }
