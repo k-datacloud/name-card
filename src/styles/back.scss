@@ -87,7 +87,7 @@
       margin-left: auto;
 
       @include respond-to("lg") {
-        width: 160px;
+        width: 200px;
         margin-top: 24px;
 
         &:hover {
