@@ -3,6 +3,21 @@ import { Curtains, Plane } from "curtainsjs";
 
 const mainScript = () => {
   const squareContainer = document.querySelector(".square-container");
+  const loadingText = document.querySelector(".loading-text");
+  const loadingTextSplit = () => {
+    const messages = ["fetching..", "processing..", "starting..", "oooooo.."];
+    const letter = messages[Math.floor(Math.random() * messages.length)];
+    const words = letter.trim().split("");
+    loadingText.innerHTML = "";
+    words.forEach((word) => {
+      const span = document.createElement("span");
+      span.textContent = word;
+      span.classList.add("loading-text__char");
+      loadingText.appendChild(span);
+    });
+  };
+  loadingTextSplit();
+
   gsap.set(squareContainer, {
     backgroundColor: "#080807",
   });
@@ -25,6 +40,10 @@ const mainScript = () => {
     const numSquares = numCols * numRows;
 
     squareContainer.innerHTML = "";
+    if (loadingText) {
+      squareContainer.appendChild(loadingText);
+      const span = document.createElement("span");
+    }
     squares = [];
 
     squareContainer.style.width = `${numCols * squareSize}px`;
@@ -108,25 +127,55 @@ const mainScript = () => {
   };
 
   const pixelOut = () => {
+    const loadingTextLetter = document.querySelectorAll(".loading-text span");
     const isMobile = window.innerWidth < 768;
 
-    const duration = isMobile ? 0.1 : 0.001;
-    const staggerEach = isMobile ? 0.01 : 0.004;
+    const pixelDuration = isMobile ? 0.1 : 0.001;
+    const pixelStaggerEach = isMobile ? 0.01 : 0.004;
     const timeline = gsap.timeline();
     gsap.set(squares, { opacity: 1 });
+    gsap.set(loadingTextLetter, {
+      yPercent: 100,
+      opacity: 0,
+    });
     timeline
+      .to(loadingTextLetter, {
+        yPercent: 0,
+        opacity: 1,
+        duration: 0.4,
+        ease: "power2.out",
+        stagger: {
+          each: 0.1,
+        },
+      })
+      .to(
+        {},
+        {
+          duration: 1,
+        }
+      )
+      .to(loadingTextLetter, {
+        yPercent: -100,
+        opacity: 0,
+        duration: 0.7,
+        ease: "power2.in",
+      })
       .to(squareContainer, {
         backgroundColor: "transparent",
       })
       .to(squares, {
         opacity: 0,
-        duration: duration,
+        duration: pixelDuration,
         stagger: {
-          each: staggerEach,
+          each: pixelStaggerEach,
           from: "random",
         },
       });
   };
+
+  const loadingTextAnimation = () => {};
+
+  loadingTextAnimation();
 
   const flipBtn = document.querySelector(".js-link");
   if (!flipBtn) return;
@@ -142,6 +191,7 @@ const mainScript = () => {
 
   window.addEventListener("DOMContentLoaded", () => {
     createSquares();
+    loadingTextAnimation();
     pixelOut();
   });
 

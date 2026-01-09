@@ -134,6 +134,24 @@ p {
     background-color: #080807;
     pointer-events: none;
   }
+
+  .loading-text {
+    font-family: "Bruno Ace", sans-serif;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #eaeaea;
+    font-size: 20px;
+    overflow: hidden;
+
+    &__char {
+      display: inline-block;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0;
+    }
+  }
 }
 
 #canvas {
